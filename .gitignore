@@ -12,3 +12,11 @@
 /BUF.Web/Umbraco
 /BUF.Web/Global.asax
 /BUF.Web/default.aspx
+/BUF.Code/bin
+/BUF.Web/App_Plugins/Grid
+/BUF.Web/App_Plugins/ModelsBuilder
+/BUF.Web/bin/amd64
+/BUF.Web/bin/roslyn
+/BUF.Web/bin/x86
+/BUF.Web/bin
+/BUF.Web/App_Plugins/ConditionalFormsWorkflow
