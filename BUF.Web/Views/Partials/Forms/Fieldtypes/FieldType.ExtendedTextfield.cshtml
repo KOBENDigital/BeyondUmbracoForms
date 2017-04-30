@@ -1,0 +1,9 @@
+@model Umbraco.Forms.Mvc.Models.FieldViewModel
+<input name="@Model.Name" id="@Model.Id" class="text" value="@Model.Value" 
+type="@(Model.AdditionalSettings["FieldType"] == "currency" ? "numeric" : Model.AdditionalSettings["FieldType"])"
+maxlength="@(Model.AdditionalSettings["MaxLength"].Length > 0 ? Model.AdditionalSettings["MaxLength"] : "500")"
+@{if(string.IsNullOrEmpty(Model.PlaceholderText) == false){<text>placeholder="@Model.PlaceholderText"</text>}}
+@{if(Model.Mandatory || Model.Validate){<text>data-val="true"</text>}}
+@{if (Model.Mandatory) {<text> data-val-required="@Model.RequiredErrorMessage"</text>}}
+@{if (Model.Validate) {<text> data-val-regex="@Model.InvalidErrorMessage" data-regex="@Html.Raw(Model.Regex)"</text>}}
+/>

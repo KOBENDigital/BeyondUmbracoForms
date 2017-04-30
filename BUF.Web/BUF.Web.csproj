@@ -299,7 +299,7 @@
     <Content Include="config\404handlers.config" />
     <Content Include="Views\Partials\Forms\Script.cshtml" />
     <Content Include="Views\Partials\Forms\Form.cshtml" />
-    <Content Include="Views\Partials\Forms\Fieldtypes\FieldType.Textfield.cshtml" />
+    <Content Include="Views\Partials\Forms\Fieldtypes\FieldType.ExtendedTextfield.cshtml" />
     <Content Include="Views\Partials\Forms\Fieldtypes\FieldType.Textarea.cshtml" />
     <Content Include="Views\Partials\Forms\Fieldtypes\FieldType.Text.cshtml" />
     <Content Include="Views\Partials\Forms\Fieldtypes\Fieldtype.Recaptcha.cshtml" />
@@ -512,6 +512,12 @@
   <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BUF.Code\BUF.Code.csproj">
+      <Project>{c54d3854-38b5-4c78-9756-111c99bd75a1}</Project>
+      <Name>BUF.Code</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
