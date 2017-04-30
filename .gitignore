@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/BUF.Code/App_Data/NuGetBackup/20170430-132129
+/BUF.Code/obj/Debug
+/BUF.Web/App_Browsers
+/BUF.Web/App_Data
+/BUF.Web/obj/Debug
+/BUF.Web/Umbraco_Client
+/packages
