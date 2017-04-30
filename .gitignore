@@ -9,3 +9,6 @@
 /BUF.Web/obj/Debug
 /BUF.Web/Umbraco_Client
 /packages
+/BUF.Web/Umbraco
+/BUF.Web/Global.asax
+/BUF.Web/default.aspx
