@@ -263,6 +263,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Plugins\UmbracoFormExtensions\Directives\contentmapper.directive.js" />
+    <Content Include="App_Plugins\UmbracoFormExtensions\Directives\umb-forms-content-mapper-prevalue-editor.html" />
+    <Content Include="App_Plugins\UmbracoFormExtensions\FieldTypes\conditionalredirect.html" />
+    <Content Include="App_Plugins\UmbracoFormExtensions\SettingTypes\conditionalredirect.controller.js" />
+    <Content Include="App_Plugins\UmbracoFormExtensions\SettingTypes\conditionalredirect.html" />
+    <Content Include="App_Plugins\UmbracoFormExtensions\SettingTypes\fieldfilter.controller.js" />
+    <Content Include="App_Plugins\UmbracoFormExtensions\SettingTypes\fieldfilter.html" />
     <Content Include="packages.config" />
     <Content Include="config\imageprocessor\security.config" />
     <Content Include="config\imageprocessor\processing.config" />
@@ -332,6 +339,7 @@
     <Content Include="App_Plugins\UmbracoForms\Data\Templates\contactform.json" />
     <Content Include="App_Plugins\UmbracoForms\Data\Templates\commentform.json" />
     <Content Include="App_Plugins\ConditionalFormsWorkflow\package.manifest" />
+    <Content Include="App_Plugins\UmbracoFormExtensions\package.manifest" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,37 @@
+﻿<div ng-controller="UmbracoFormExtensions.SettingTypes.FieldFilterController">
+    <h5>Filters</h5>
+    
+    <table>
+        <thead>
+            <tr>
+                <td></td>
+                <td>Form field</td>
+                <td>Expected Value</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="filter in filters">
+                <td><a ng-click="deleteFilter($index)"><i class="icon-trash"></i></a></td>
+                <td><select ng-options="field.id as field.value for field in fields" ng-model="filter.field" style="width: auto;"></select></td>
+                <td><input type="text" placeholder="Filter value" ng-model="filter.value" style="width: auto;" /></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h5>Add Filter</h5>
+    <table>
+        <tbody>
+            <tr>
+                <td><a ng-click="addFilter()"><i class="icon-add"></i></a></td>
+                <td>
+                    <select ng-model="filterField" style="width: auto;">
+                        <option value="">Add a filter</option>
+                        <option ng-repeat="field in fields" value="{{field.id}}">{{field.value}}</option>
+                    </select>
+                </td>
+                <td><input type="text" placeholder="Expected value" ng-model="filterValue" style="width: auto;" /></td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>

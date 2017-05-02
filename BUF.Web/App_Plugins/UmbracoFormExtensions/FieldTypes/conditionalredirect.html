@@ -1,0 +1,8 @@
+﻿<div class="umb-forms-hidden">
+	{{field.caption}}
+</div>
+
+<!-- TODO: Add custom prevalue editor directive to specify value and corresponding node id (use picker) -->
+<div ng-if="field.prevalueSourceId == null || field.prevalueSourceId == '00000000-0000-0000-0000-000000000000'">
+    <umb-forms-content-mapper-prevalue-editor ng-model="field.preValues" />
+</div>

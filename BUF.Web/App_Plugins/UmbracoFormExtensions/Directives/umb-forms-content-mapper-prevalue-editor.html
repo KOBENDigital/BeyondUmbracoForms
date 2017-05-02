@@ -1,0 +1,36 @@
+﻿<div>
+    <h5>Source Field</h5>
+    <input type="text" placeholder="Source field alias" class="inline-editor prevalue" prevent-default ng-model="prevalues.source" />
+    <a ng-click="updateModel()"><i class="icon-refresh"></i> Update</a>
+
+    <h5>Target Pages</h5>
+    <table>
+        <thead>
+            <tr>
+                <td>Expected field value</td>
+                <td>Target page</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="target in prevalues.targets">
+                <td>
+                    <input type="text" placeholder="Value" class="prevalue" prevent-default ng-model="target.result" />
+                </td>
+                <td><umb-forms-content-picker ng-model="target.node" /></td>
+                <td><a ng-click="deleteTarget($index)"><i class="icon-trash"></i></a></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr><td colspan="3"><h5>Add Target</h5></td></tr>
+            <tr>
+                <td>
+                    <input type="text" placeholder="value" class="" prevent-default ng-model="newPrevalueResult" />
+                </td>
+                <td><umb-forms-content-picker ng-model="newPrevalueNode" /></td>
+                <td><a ng-click="addTarget()" ng-show="newPrevalueNode"><i class="icon-add"></i></a></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+

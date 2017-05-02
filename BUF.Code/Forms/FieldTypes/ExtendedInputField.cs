@@ -35,5 +35,6 @@ namespace BUF.Code.Forms.FieldTypes
         
         [Setting("CssClass", description = "Add a custom css class")]
         public string CssClass { get; set; }
+        
     }
 }

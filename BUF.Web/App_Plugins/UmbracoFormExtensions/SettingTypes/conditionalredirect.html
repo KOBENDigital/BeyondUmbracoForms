@@ -1,0 +1,36 @@
+﻿<div ng-controller="UmbracoFormExtensions.SettingTypes.ConditionalRedirectController">
+    <h5>Source Field</h5>
+    <select ng-model="redirection.source">
+        <option value="">Select a source field</option>
+        <option ng-repeat="field in fields" value="{{field.id}}">{{field.value}}</option>
+    </select>
+    <h5>Target Pages</h5>
+    <table>
+        <thead>
+            <tr>
+                <td>Expected field value</td>
+                <td>Target page</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="target in redirection.targets">
+                <td>
+                    <input type="text" placeholder="Value" class="prevalue" prevent-default ng-model="target.result" />
+                </td>
+                <td><umb-forms-content-picker ng-model="target.node" /></td>
+                <td><a ng-click="deleteTarget($index)"><i class="icon-trash"></i></a></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr><td colspan="3"><h5>Add Target</h5></td></tr>
+            <tr>
+                <td>
+                    <input type="text" placeholder="value" class="" prevent-default ng-model="newResult" />
+                </td>
+                <td><umb-forms-content-picker ng-model="newNode" /></td>
+                <td><a ng-click="addTarget()" ng-show="newNode"><i class="icon-add"></i></a></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
