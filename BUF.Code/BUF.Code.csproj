@@ -263,6 +263,7 @@
     <Compile Include="Forms\FieldTypes\ConditionalRedirect.cs" />
     <Compile Include="Forms\FieldTypes\ExtendedInputField.cs" />
     <Compile Include="Forms\FormSubmitOverrideController.cs" />
+    <Compile Include="Forms\Workflows\ConditionalSendEmail.cs" />
     <Compile Include="Forms\Workflows\MyWorkflow.cs" />
     <Compile Include="Forms\Workflows\NotifySubmitterWorkflow.cs" />
     <Compile Include="Forms\Workflows\SubmitRedirectionWorkflow.cs" />
