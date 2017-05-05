@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using BUF.Code.Forms.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,9 @@ namespace BUF.Code.Forms.Workflows
             Description = "Send the result of the form to an email address conditionally based on form input";
         }
 
-        [Setting("Filter Fields", description = "Specify fields and their expected values to filter this email on.  If any of the filters aren't matched the email will not be sent.", view = "~/App_Plugins/UmbracoFormExtensions/SettingTypes/fieldfilter.html")]
+        [Setting("Filter Fields", 
+            description = "Specify fields and their expected values to filter this email on.  If any of the filters aren't matched the email will not be sent.", 
+            view = "~/App_Plugins/UmbracoFormExtensions/SettingTypes/fieldfilter.html")]
         public string FilterFields
         {
             get; set;
@@ -32,7 +35,9 @@ namespace BUF.Code.Forms.Workflows
             get; set;
         }
 
-        [Setting("CcList", description = "Specify email addresses to be cc'd separated by a comma", view = "TextField")]
+        [Setting("CcList", 
+            description = "Specify email addresses to be cc'd separated by a comma", 
+            view = "TextField")]
         public string CcList { get; set; }
 
         public override List<Exception> ValidateSettings()
@@ -77,26 +82,5 @@ namespace BUF.Code.Forms.Workflows
 
             return mappings;
         }
-
-
-        [DataContract(Name = "fieldFilter")]
-        public class FieldFilter
-        {
-
-            [DataMember(Name = "field")]
-            public string Field
-            {
-                get;
-                set;
-            }
-
-            [DataMember(Name = "value")]
-            public string Value
-            {
-                get;
-                set;
-            }
-        }
-
     }
 }

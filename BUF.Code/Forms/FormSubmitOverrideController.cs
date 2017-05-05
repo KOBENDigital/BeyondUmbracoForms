@@ -1,4 +1,5 @@
 ﻿using BUF.Code.Forms.FieldTypes;
+using BUF.Code.Forms.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace BUF.Code.Forms
             var redirectField = form.AllFields.FirstOrDefault(f => f.FieldTypeId == ConditionalRedirect.ConditionalRedirectId);
             if (redirectField != null)
             {
-                var redirectionSettings = ConditionalRedirect.FieldRedirection.FromSettings(redirectField.Settings);
+                var redirectionSettings = FieldRedirection.FromSettings(redirectField.Settings);
                 if (redirectionSettings != null)
                 {
                     // Change the form's GoToPageOnSubmit parameter depending on the model.

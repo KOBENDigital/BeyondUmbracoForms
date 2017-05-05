@@ -1,8 +1,7 @@
 {
   "javascript": [
     "~/App_Plugins/UmbracoFormExtensions/SettingTypes/fieldfilter.controller.js",
-    "~/App_Plugins/UmbracoFormExtensions/SettingTypes/fieldpicker.controller.js",
-    "~/App_Plugins/UmbracoFormExtensions/SettingTypes/regionpicker.controller.js",
+    //"~/App_Plugins/UmbracoFormExtensions/SettingTypes/fieldpicker.controller.js",
     "~/App_Plugins/UmbracoFormExtensions/SettingTypes/conditionalredirect.controller.js",
     "~/App_Plugins/UmbracoFormExtensions/Directives/contentmapper.directive.js"
   ]

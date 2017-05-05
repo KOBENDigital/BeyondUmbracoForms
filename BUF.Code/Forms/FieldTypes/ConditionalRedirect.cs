@@ -29,7 +29,9 @@ namespace BUF.Code.Forms.FieldTypes
             return "~/App_Plugins/UmbracoForms/Backoffice/Common/FieldTypes/HiddenField.html";
         }
 
-        [Setting("Redirection", description = "Specify the control to watch and the nodes to redirect to based on the control values", view = "~/App_Plugins/UmbracoFormExtensions/SettingTypes/conditionalredirect.html")]
+        [Setting("Redirection", 
+            description = "Specify the control to watch and the nodes to redirect to based on the control values", 
+            view = "~/App_Plugins/UmbracoFormExtensions/SettingTypes/conditionalredirect.html")]
         public string Redirection
         {
             get; set;
@@ -42,63 +44,6 @@ namespace BUF.Code.Forms.FieldTypes
             {
                 return false;
             }
-        }
-
-
-        [DataContract(Name = "fieldRedirection")]
-        public class FieldRedirection
-        {
-
-            [DataMember(Name = "source")]
-            public Guid Source
-            {
-                get;
-                set;
-            }
-
-            [DataMember(Name = "targets")]
-            public IEnumerable<RedirectionTarget> Targets
-            {
-                get;
-                set;
-            }
-
-
-            public static FieldRedirection FromSettings(IDictionary<string, string> settings)
-            {
-                if (settings != null && settings.ContainsKey("Redirection"))
-                {
-                    var settingValue = settings["Redirection"];
-                    if (!string.IsNullOrEmpty(settingValue))
-                    {
-                        return JsonConvert.DeserializeObject<FieldRedirection>(settingValue);
-                    }
-
-                }
-
-                return null;
-            }
-
-        }
-
-        [DataContract(Name = "target")]
-        public class RedirectionTarget
-        {
-
-            [DataMember(Name = "result")]
-            public string Result
-            {
-                get;
-                set;
-            }
-
-            [DataMember(Name = "node")]
-            public int Node
-            {
-                get;
-                set;
-            }
-
         }
     }
 }
