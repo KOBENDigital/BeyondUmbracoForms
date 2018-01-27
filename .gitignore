@@ -2,23 +2,15 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/BUF.Code/App_Data/NuGetBackup/20170430-132129
-/BUF.Code/obj/Debug
-/BUF.Web/App_Browsers
-/BUF.Web/App_Data
-/BUF.Web/obj/Debug
-/BUF.Web/Umbraco_Client
+App_Browsers
+App_Data
+[Oo]bj
+[Bb]in
+.vs
 /packages
 /BUF.Web/Umbraco
+/BUF.Web/Umbraco_Client
 /BUF.Web/Global.asax
 /BUF.Web/default.aspx
-/BUF.Code/bin
 /BUF.Web/App_Plugins/Grid
 /BUF.Web/App_Plugins/ModelsBuilder
-/BUF.Web/bin/amd64
-/BUF.Web/bin/roslyn
-/BUF.Web/bin/x86
-/BUF.Web/bin
-/BUF.Web/App_Plugins/ConditionalFormsWorkflow
-/.vs/config
-/.vs/BUF.Web/v15

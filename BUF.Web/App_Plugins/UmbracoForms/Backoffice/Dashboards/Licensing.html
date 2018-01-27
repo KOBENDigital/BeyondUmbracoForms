@@ -11,7 +11,13 @@
 
             <div class="divider"></div>
 
-            <button class="btn btn-primary btn-blue" ng-click="create()">Create a form</button>
+            <umb-button
+                button-style="success"
+                type="button"
+                action="create()"
+                label="Create a form">
+            </umb-button>
+
         </div>
     </div>
 
@@ -19,13 +25,19 @@
 
         <div class="row-fluid">
             <div class="span8">
-                <h3>There is new version available</h3>
+                <h3>There is a new version available</h3>
                 <p>
                     You can now install Umbraco forms {{version.remoteVersion}}
                 </p>
             </div>
             <div class="span4 umb-db-form-action">
-                <button class="btn btn-primary btn-blue" ng-hide="installing" ng-click="upgrade()">Upgrade now</button>
+                <umb-button
+                    ng-if="!installing"
+                    button-style="success"
+                    type="button"
+                    action="upgrade()"
+                    label="Upgrade now">
+                </umb-button>
             </div>
         </div>
 
@@ -37,8 +49,7 @@
 
         <hr />
     </div>
-
-
+    
     <div ng-if="status.isTrial || status.isInValid === true">
 
         <div class="alert alert-error" ng-if="status.isInValid">
@@ -56,7 +67,13 @@
             </div>
 
             <div class="span4 umb-db-form-action">
-                <button class="btn btn-primary btn-blue" ng-click="status.state = 'buy'">Buy license</button><br />
+                <umb-button
+                    style="display: block;"
+                    button-style="success"
+                    type="button"
+                    action="status.state = 'buy'"
+                    label="Buy license">
+                </umb-button>
                 <a class="btn btn-link btn-tiny" ng-click="status.state = 'use'">Configure existing license</a>
             </div>
         </div>
@@ -71,7 +88,7 @@
                 this page and configure it.
             </p>
 
-            <a href="http://umbraco.com/products-and-support/forms?utm_source=core&utm_medium=dashboard&utm_content=topic-link&utm_campaign=formslicensing" target="_blank" class="btn btn-primart">Go to umbraco.com/forms</a> <a class="btn btn-link" ng-click="status.state = undefined">Back</a>
+            <a href="https://umbraco.com/products/umbraco-forms/?utm_source=core&utm_medium=dashboard&utm_content=topic-link&utm_campaign=formslicensing" target="_blank" class="btn btn-primart">Go to umbraco.com/products/umbraco-forms</a> <a class="btn btn-link" ng-click="status.state = undefined">Back</a>
         </div>
 
 
@@ -140,6 +157,34 @@
 
     <div ng-if="currentVersion">
         <small>Current installed version of Umbraco Forms: {{ currentVersion }}</small>
+    </div>
+
+    <div ng-if="savePlainTextPasswords && isAdminUser">
+        <div class="row-fluid">
+            <style>
+                .warnblock {
+                    background-color: #f1f1f1;
+                    padding: 4px;
+                }
+                .warning {
+                    color: red;
+                    font-weight: bold;
+                }
+                .code {
+                    color: crimson;
+                    background-color: #f1f1f1;
+                    padding-left: 4px;
+                    padding-right: 4px;
+                }
+            </style>
+            <div class="span8 warnblock">
+                <h3 class="warning">Warning: your configuration settings are set to save plain text passwords!</h3>
+                <p>When you use a password field on any of your forms, the data your visitors will enter in that field will be stored in plain text. This is a security issue and should be avoided.</p>
+                <p>To fix this issue, you can go in to your <span class="code">~/App_Plugins/UmbracoForms/UmbracoForms.config</span> file and set the key <span class="code">SavePlainTextPasswords</span> to <span class="code">False</span>.</p>
+                <p>After updating this setting, make sure to recycle the application pool for the site for the new setting to become active.</p>
+                <p>Note: password values will still be passed on to workflows, regardless of the setting in <span class="code">UmbracoForms.config</span></p>
+            </div>
+        </div>
     </div>
 
 </div>
