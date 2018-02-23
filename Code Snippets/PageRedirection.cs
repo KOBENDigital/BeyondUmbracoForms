@@ -1,26 +1,10 @@
-﻿using BUF.Code.Forms.Models;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Web;
-using Umbraco.Forms.Core;
-using Umbraco.Forms.Core.Attributes;
-using Umbraco.Forms.Core.Enums;
-using Umbraco.Web;
+// SubmitRedirectionWorkflow : WorkflowType
 
-namespace BUF.Code.Forms.Workflows
-{
-    public class SubmitRedirectionWorkflow : WorkflowType
-    {
-        public SubmitRedirectionWorkflow()
-        {
             Id = new Guid("F6ABE235-8E73-4C36-A4AD-DF7CFD39AFE8");
+
             Name = "Submit Page Redirection";
             Description = "Choose an umbraco page to go to on submit based on form choice.";
             Icon = "icon-directions-alt";
-        }
 
         public override WorkflowExecutionStatus Execute(Record record, RecordEventArgs e)
         {
@@ -31,7 +15,6 @@ namespace BUF.Code.Forms.Workflows
             var form = e.Form;
 
             var redirectionSettings = FieldRedirection.FromSettings(Redirection);
-
             if (redirectionSettings != null)
             {
                 // Change the form's GoToPageOnSubmit parameter depending on the model.
@@ -64,23 +47,24 @@ namespace BUF.Code.Forms.Workflows
                     }
                 }
             }
-
             return WorkflowExecutionStatus.Completed;
         }
 
         public override List<Exception> ValidateSettings()
         {
             var exceptions = new List<Exception>();
+            if (string.IsNullOrWhiteSpace(Redirection))
+            {
+                exceptions.Add(new Exception("'Redirection' is not configured"));
+            }
             return exceptions;
         }
 
 
-        [Setting("Redirection",
-            description = "Specify the control to watch and the nodes to redirect to based on the control values",
+        [Setting("Redirection", 
+            description = "Specify the control to watch and the nodes to redirect to based on the control values", 
             view = "~/App_Plugins/UmbracoFormExtensions/SettingTypes/conditionalredirect.html")]
         public string Redirection
         {
             get; set;
         }
-    }
-}

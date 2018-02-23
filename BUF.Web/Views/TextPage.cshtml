@@ -1,6 +1,26 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using Umbraco.Forms.Core.Extensions
+@using Umbraco.Forms.Data
+@using Umbraco.Forms.Core
 @{
     Layout = "Master.cshtml";
 }
+@{
+    var content = Html.GetGridHtml(Model.Content, "content", "fanoe");
 
-@CurrentPage.GetGridHtml("content", "fanoe")
+    // Using Magic Strings:
+
+    // A custom workflow is required to save the record to the session so that it can be accessed here.
+    // See: RecordSessionWorkflow for implementation.
+
+    // An alternative method would be to use the Umbraco Forms DynamicObjects Library API to retrieve the most recent record for the form, 
+    // but can be a bit more complex.  For more details see https://our.umbraco.org/documentation/Add-ons/UmbracoForms/Developer/Working-With-Data/
+
+    Record record = HttpContext.Current.Session["uRecord"] as Record;
+
+    // The Umbraco Forms documentation mentions using the string.ParsePlaceHolders() extension method; but that doesn't take into account actual Record data.
+    // We need to pass the record in to the StringHelper method instead.
+    var parsedContent = StringHelper.ParsePlaceHolders(record, content.ToString());
+}
+
+@Html.Raw(parsedContent);

@@ -7,21 +7,25 @@ using Umbraco.Forms.Core.Enums;
 
 namespace BUF.Code.Forms.Workflows
 {
-    public class NotifySubmitterWorkflow : WorkflowType
+    public class RecordSessionWorkflow : WorkflowType
     {
-        public NotifySubmitterWorkflow() {
-            Icon = "icon-notify";
+        public RecordSessionWorkflow()
+        {
+            Id = new Guid("01B44E1B-149C-4090-B9F2-2790364C9C88");
+            Name = "Save Record To Session";
+
         }
 
         public override WorkflowExecutionStatus Execute(Record record, RecordEventArgs e)
         {
+            HttpContext.Current.Session["uRecord"] = record;
 
-            throw new NotImplementedException();
+            return WorkflowExecutionStatus.Completed;
         }
 
         public override List<Exception> ValidateSettings()
         {
-            throw new NotImplementedException();
+            return new List<Exception>();
         }
     }
 }

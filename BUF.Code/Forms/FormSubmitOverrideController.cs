@@ -15,7 +15,11 @@ namespace BUF.Code.Forms
     {
         protected override void OnFormHandled(Form form, FormViewModel model)
         {
-            var redirectField = form.AllFields.FirstOrDefault(f => f.FieldTypeId == ConditionalRedirect.ConditionalRedirectId);
+            // find the field in the AllFields collection and then perform some action
+            var redirectField = form.AllFields.FirstOrDefault(f => f.FieldType.Name == "Conditional Redirect");
+
+            //var redirectField = form.AllFields.FirstOrDefault(f => f.FieldTypeId == ConditionalRedirect.ConditionalRedirectId);
+
             if (redirectField != null)
             {
                 var redirectionSettings = FieldRedirection.FromSettings(redirectField.Settings);
